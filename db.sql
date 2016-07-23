@@ -2,7 +2,7 @@
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(70) NOT NULL COMMENT '角色名称',
   `enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1有效 0无效',
-  `created_time` datetime DEFAULT NULL COMMENT '注册时间',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_time` datetime DEFAULT NULL COMMENT '修改时间',
   `config` text,
   PRIMARY KEY (`id`)
@@ -13,7 +13,7 @@ CREATE TABLE `wz_user` (
   `username` char(70) NOT NULL COMMENT '用户名',
   `password` char(70) NOT NULL COMMENT '密码',
   `superman` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1超级管理员 0 普通管理员',
-  `created_time` datetime DEFAULT NULL COMMENT '注册时间',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_time` datetime DEFAULT NULL COMMENT '修改时间',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '封禁状态，0禁止 1正常',
   `login_ip` char(20) DEFAULT NULL COMMENT '登录ip',

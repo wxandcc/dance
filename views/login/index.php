@@ -16,7 +16,7 @@ use yii\bootstrap\ActiveForm;
             <?php $form = ActiveForm::begin([])?>
                 <div class="input-group mb15">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input name="LoginForm[username]" type="text" class="form-control" placeholder="用户�?" autofocus>
+                    <input name="LoginForm[username]" type="text" class="form-control" placeholder="用户名?" autofocus>
                 </div><!-- input-group -->
                 <div class="input-group mb15">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

@@ -11,13 +11,13 @@ namespace app\controllers;
 
 use Yii;
 use app\models\LoginForm;
+use yii\web\Controller;
 
 
-class LoginController extends BaseController
+class LoginController extends Controller
 {
     public $layout = "login";
     public function actionIndex(){
-
         if (!Yii::$app->user->isGuest ) {
             return $this->goHome();
         }

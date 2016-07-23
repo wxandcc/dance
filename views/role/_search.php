@@ -21,15 +21,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'enable') ?>
 
-    <?= $form->field($model, 'created_time') ?>
-
-    <?= $form->field($model, 'updated_time') ?>
-
     <?php // echo $form->field($model, 'config') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

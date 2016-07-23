@@ -7,6 +7,7 @@ use yii\behaviors\TimestampBehavior;
 
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+    const SUPERMAN = 1;
     /**
      * @inheritdoc
      */
@@ -135,6 +136,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    public function isSuperman(){
+        return $this->superman == self::SUPERMAN;
     }
 
 }
