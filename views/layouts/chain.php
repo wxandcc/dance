@@ -4,11 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\ChainAsset;
-use yii\base\view;
 
 ChainAsset::register($this);
 ?>
@@ -35,7 +31,12 @@ ChainAsset::register($this);
 <section>
     <div class="mainwrapper">
         <?= $this->render('chain/left-panel')?>
-        <?= $content ?>
+
+        <div class="mainpanel">
+            <div class="contentpanel">
+                <?= $content ?>
+            </div>
+        </div>
     </div><!-- mainwrapper -->
 </section>
 

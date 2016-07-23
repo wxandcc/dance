@@ -1,15 +1,15 @@
 <div class="leftpanel">
     <div class="media profile-left">
-        <a class="pull-left profile-thumb" href="profile.html">
-            <img class="img-circle" src="images/photos/profile.png" alt="">
+        <a class="pull-left profile-thumb" href="<?= Yii::$app->urlManager->createUrl(["user/view",'id'=>$this->params['user']->id])?>">
+            <img class="img-circle" src="/images/photos/profile.png" alt="">
         </a>
         <div class="media-body">
-            <h4 class="media-heading">Elen Adarna</h4>
-            <small class="text-muted">Beach Lover</small>
+            <h4 class="media-heading"><?=$this->params['user']->username;?></h4>
+<!--            <small class="text-muted">Beach Lover</small> -->
         </div>
     </div><!-- media -->
 
-    <h5 class="leftpanel-title">Navigation</h5>
+    <h5 class="leftpanel-title">导航栏</h5>
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="index-2.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         <li><a href="messages.html"><span class="pull-right badge">5</span><i class="fa fa-envelope-o"></i> <span>Messages</span></a></li>
@@ -64,18 +64,4 @@
 
 </div><!-- leftpanel -->
 
-<div class="mainpanel">
-    <div class="pageheader">
-        <div class="media">
-            <div class="pageicon pull-left">
-                <i class="fa fa-home"></i>
-            </div>
-            <div class="media-body">
-                <ul class="breadcrumb">
-                    <li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-                    <li>Dashboard</li>
-                </ul>
-                <h4>Dashboard</h4>
-            </div>
-        </div><!-- media -->
-    </div><!-- pageheader -->
+    

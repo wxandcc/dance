@@ -36,17 +36,17 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
-            'password' => 'Password',
-            'superman' => 'Superman',
-            'created_time' => 'Created Time',
-            'updated_time' => 'Updated Time',
-            'status' => 'Status',
-            'login_ip' => 'Login Ip',
-            'login_time' => 'Login Time',
-            'login_count' => 'Login Count',
-            'update_password' => 'Update Password',
-            'config'=>'Config'
+            'username' => '用户名',
+            'password' => '密码',
+            'superman' => '超管',
+            'created_time' => '创建时间',
+            'updated_time' => '修改时间',
+            'status' => '状态',
+            'login_ip' => '上次登录IP地址',
+            'login_time' => '上次登录时间',
+            'login_count' => '登陆次数',
+            'update_password' => '修改密码次数',
+            'config'=>'权限配置信息'
         ];
     }
 
@@ -136,4 +136,5 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->password === $password;
     }
+
 }
