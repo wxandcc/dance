@@ -26,11 +26,10 @@
                     <ul class="dropdown-menu pull-right" role="menu">
                         <li><a href="<?= Yii::$app->urlManager->createUrl(["user/view",'id'=>$this->params['user']->id])?>"><i class="glyphicon glyphicon-user"></i>我的信息</a></li>
                         <li class="divider"></li>
-                        <?= Html::beginForm(['/site/logout'], 'post') ?>
+                        <?= Html::beginForm(['/login/logout'], 'post') ?>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-log-out"></i>
                                 <button type="submit" class="btn-link">退出(<?=$this->params['user']->username;?>)</button>
-
                             </a>
                         </li>
                         <?= Html::endForm()?></li>

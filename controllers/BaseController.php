@@ -12,6 +12,7 @@ namespace app\controllers;
 use app\models\User;
 use yii\web\Controller;
 use Yii;
+use app\models\Role;
 
 class BaseController extends Controller
 {
@@ -44,7 +45,33 @@ class BaseController extends Controller
         if($this->user->isSuperman()){
             $this->auth = Yii::$app->params['auth'];
         }else{
-            return [];
+            $auth = [];
+            $roles = [];
+            $config = $this->user->config; //角色配置信息
+            if($config){
+                $config = json_decode($config,true);
+                foreach ($config as $id) {
+                    $role = Role::getEnableRoleById($id);
+                    if($role && $role->config){
+                        $p = json_decode($role->config,true);
+                        $roles = array_merge($roles, $p);
+                    }
+                }
+            }
+            if($roles){
+                foreach ( Yii::$app->params['auth'] as $k=>$v){
+                    if($roles[$k]['all']){
+                        $auth[$k] = $v;
+                    }elseif (Yii::$app->params['auth'][$k]['action']){
+                        $auth[$k]['info'] = Yii::$app->params['auth'][$k]['info'];
+                        $auth[$k]['defaultUrl'] = Yii::$app->params['auth'][$k]['defaultUrl'];
+                        foreach (Yii::$app->params['auth'][$k]['action'] as $kk=>$vv){
+                            if($roles[$k]['action'][$kk]) $auth[$k]['action'][$kk] = $vv;
+                        }
+                    }
+                }
+            }
+            $this->auth = $auth;
         }
     }
 
@@ -57,6 +84,15 @@ class BaseController extends Controller
         if($this->user->isSuperman()){
             return true;
         }else{
+            if($this->auth[Yii::$app->controller->id]['all']){
+                return true;
+            }
+            if($this->auth[Yii::$app->controller->id]['action'][Yii::$app->controller->action->id]){
+                return true;
+            }
+            if(Yii::$app->controller->id=="index" && Yii::$app->controller->action->id=="index"){
+                return true;//修复循环重定向bug
+            }
             return false;
         }
     }

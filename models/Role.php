@@ -72,4 +72,8 @@ class Role extends \yii\db\ActiveRecord
     public static function getAllEnableRole(){
         return static::findAll(["enable"=>1]);
     }
+
+    public static function getEnableRoleById($id){
+        return static::findOne(['id'=>$id,'enable'=>1]);
+    }
 }
