@@ -12,11 +12,9 @@
     <h5 class="leftpanel-title">导航栏</h5>
     <ul class="nav nav-pills nav-stacked">
         <?php if($this->params['auth']){
-            foreach ($this->params['auth'] as $controller =>$auth){
-                if(!$auth['hide']){ ?>
+            foreach ($this->params['auth'] as $controller =>$auth){?>
                     <li ><a href="<?=Yii::$app->urlManager->createUrl($auth['defaultUrl'])?>"><i class="fa fa-bars"></i> <span><?=$auth['info']?></span></a></li>
-                    <?php
-                }
+                <?php
             }
         }?>
     </ul>

@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+if($model->config){
+    $config = json_decode($model->config,true);
+}
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
 
@@ -38,8 +41,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'login_time:datetime',
             'login_count',
             'update_password',
-            'config:ntext',
         ],
     ]) ?>
+
+    <div class="row">
+        <div class="col-sm-12 text-left"><h3>用户拥有的角色</h3></div>
+    </div>
+
+    <?php foreach ($this->params['all-role'] as $key=>$role) { ?>
+        <div class="panel panel-default padding15">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">角色</label>
+                <div class="col-sm-8">
+                    <div class="ckbox ckbox-default">
+                        <input name="Role[]" type="checkbox" value="<?=$role['id']?>" id="<?= $key . "-role" ?>" <?= $config && in_array($role['id'],$config) ? 'checked="checked"' : "" ?>>
+                        <label for="<?=$key."-role"?>"><?= $role['name'] ?></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
 </div>

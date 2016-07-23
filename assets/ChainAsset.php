@@ -39,7 +39,7 @@ class ChainAsset extends AssetBundle
         "js/select2.min.js",
 
         "js/custom.js",
-        "js/dashboard.js"
+        "js/dashboard.js",
     ];
     public $depends = [
     ];

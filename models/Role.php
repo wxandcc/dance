@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%role}}".
@@ -43,7 +44,7 @@ class Role extends \yii\db\ActiveRecord
     {
         return [
             "timestamp"=> [
-                'class' => yii\behaviors\TimestampBehavior::className(),
+                'class' => TimestampBehavior::className(),
                 'attributes' => [
                     \yii\db\ActiveRecord::EVENT_BEFORE_INSERT => ['created_time', 'updated_time'],
                     \yii\db\ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
@@ -66,5 +67,9 @@ class Role extends \yii\db\ActiveRecord
             'updated_time' => '修改时间',
             'config' => '角色配置',
         ];
+    }
+
+    public static function getAllEnableRole(){
+        return static::findAll(["enable"=>1]);
     }
 }

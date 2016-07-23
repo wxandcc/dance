@@ -40,7 +40,7 @@ class BaseController extends Controller
     /**
      * 获取权限数组
      */
-    private function getAuth(){
+    protected function getAuth(){
         if($this->user->isSuperman()){
             $this->auth = Yii::$app->params['auth'];
         }else{
@@ -53,7 +53,7 @@ class BaseController extends Controller
      * 查看权限
      */
 
-    private function checkAccess(){
+    protected function checkAccess(){
         if($this->user->isSuperman()){
             return true;
         }else{

@@ -3,6 +3,7 @@
 return [
     'adminEmail' => 'admin@example.com',
     'auth'=>[
+        /*
         'login'=>[
             "info"=>"登录",
             "hide"=>true,
@@ -11,17 +12,30 @@ return [
                 "all"=>"全部授权"
             ]
         ],
+        */
         "user"=>[
+            "all"=>"全部授权",
             "info"=>"用户管理",
             'defaultUrl'=>'user/index',
             "action"=>[
-                "all"=>"全部授权",
                 "index"=>"查看列表",
                 "create"=>"创建用户",
                 "view"=>"查看详情",
                 "update"=>"修改用户",
                 "delete"=>"删除用户"
             ]
-        ]
+        ],
+        "role"=>[
+            "all"=>"全部授权",
+            "info"=>"角色管理",
+            'defaultUrl'=>'role/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建角色",
+                "view"=>"查看详情",
+                "update"=>"修改角色",
+                "delete"=>"删除角色"
+            ]
+        ],
     ]
 ];
