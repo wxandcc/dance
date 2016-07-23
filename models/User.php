@@ -7,14 +7,6 @@ use yii\behaviors\TimestampBehavior;
 
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
-
-//    public $authKey;
-//    public $accessToken;
-
-
     /**
      * @inheritdoc
      */
@@ -107,7 +99,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         if($user){
             return $user;
         }
-
         return null;
     }
 

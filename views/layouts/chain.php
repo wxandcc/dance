@@ -7,9 +7,10 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use app\assets\ChainAsset;
+use yii\base\view;
 
-AppAsset::register($this);
+ChainAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -29,7 +30,15 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<?= $content ?>
+<?= $this->render('chain/header')?>
+
+<section>
+    <?= $this->render('chain/left-panel')?>
+
+    <div class="mainwrapper">
+        <?= $content ?>
+    </div><!-- mainwrapper -->
+</section>
 
 <?php $this->endBody() ?>
 </body>

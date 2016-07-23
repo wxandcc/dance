@@ -12,8 +12,8 @@ use yii\web\Controller;
 
 class IndexController extends BaseController
 {
-    public function actionLogin(){
-        $this->layout = "login";
-        return $this->render("login");
+    
+    public function actionIndex(){
+        return $this->render("index");
     }
 }

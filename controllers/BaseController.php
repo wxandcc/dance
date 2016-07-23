@@ -14,6 +14,7 @@ use Yii;
 
 class BaseController extends Controller
 {
+    public $layout = "chain";
     public function beforeAction($action)
     {
         if (Yii::$app->user->isGuest && Yii::$app->controller->id != 'login') {
