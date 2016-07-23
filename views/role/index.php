@@ -33,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Role::enableMap()[$model->enable];
                 }
             ],
-            'enable',
             'created_time',
             'updated_time',
             // 'config:ntext',

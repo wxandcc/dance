@@ -39,6 +39,7 @@ class Role extends \yii\db\ActiveRecord
             [['created_time', 'updated_time'], 'safe'],
             [['config'], 'string'],
             [['name'], 'string', 'max' => 70],
+            ['name','unique',"message"=>'角色名称不能重复']
         ];
     }
 
