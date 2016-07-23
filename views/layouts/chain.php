@@ -33,9 +33,8 @@ ChainAsset::register($this);
 <?= $this->render('chain/header')?>
 
 <section>
-    <?= $this->render('chain/left-panel')?>
-
     <div class="mainwrapper">
+        <?= $this->render('chain/left-panel')?>
         <?= $content ?>
     </div><!-- mainwrapper -->
 </section>

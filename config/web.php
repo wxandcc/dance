@@ -47,6 +47,7 @@ $config = [
             'rules' => []
         ],
     ],
+    'defaultRoute' => 'index',
     'params' => $params,
 ];
 

@@ -16,7 +16,7 @@
             <div class="pull-right">
 
                 <form class="form form-search" action="http://themepixels.com/demo/webpage/chain/search-results.html">
-                    <input type="search" class="form-control" placeholder="Search" />
+                    <input type="search" class="form-control" placeholder="<?=$this->params['customParam'];?>" />
                 </form>
 
                 <div class="btn-group btn-group-list btn-group-notification">
