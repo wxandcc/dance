@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserQuery */
@@ -27,11 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             //'password',
-            'superman',
+            [
+                'label'=>'管理员级别',
+                'value' => function ($data) {
+                        return User::supermanMap()[$data->superman];
+                },
+            ],
             'created_time',
             // 'updated_time',
+            [
+                'label'=>'状态',
+                'value' => function ($data) {
+                    return User::statusMap()[$data->status];
+                },
+            ],
             // 'status',
-            // 'login_ip',
+            'login_ip',
             // 'login_time:datetime',
             // 'login_count',
             // 'update_password',

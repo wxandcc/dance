@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Role;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\RoleQuery */
@@ -19,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'enable') ?>
+    <?= $form->field($model, 'enable')->dropDownList(Role::enableMap()) ?>
 
     <?php // echo $form->field($model, 'config') ?>
 

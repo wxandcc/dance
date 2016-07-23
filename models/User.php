@@ -8,6 +8,11 @@ use yii\behaviors\TimestampBehavior;
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     const SUPERMAN = 1;
+    const NORMALMAN=0;
+
+    const STATUS_NORMAL = 1;
+    const STATUS_CLOSE = 0;
+
     /**
      * @inheritdoc
      */
@@ -15,6 +20,21 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return '{{%user}}';
     }
+
+    public static function supermanMap(){
+        return [
+            self::SUPERMAN=>'超级管理员',
+            self::NORMALMAN=>'普通管理员'
+        ];
+    }
+
+    public static function statusMap(){
+        return [
+            self::STATUS_NORMAL=>'正常',
+            self::STATUS_CLOSE=>'禁止'
+        ];
+    }
+
 
     /**
      * @inheritdoc
@@ -24,6 +44,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['username', 'password'], 'required'],
             [['created_time','updated_time','config'], 'safe'],
+            [['superman','status'],'in','range'=>[0,1]],
             [['superman','status', 'login_time', 'login_count', 'update_password'], 'integer'],
             [['username', 'password'], 'string', 'max' => 70],
             [['login_ip'], 'string', 'max' => 20],

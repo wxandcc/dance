@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Role;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RoleQuery */
@@ -26,6 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
+            [
+                'label'=>'角色状态',
+                'value'=>function($model){
+                    return Role::enableMap()[$model->enable];
+                }
+            ],
             'enable',
             'created_time',
             'updated_time',

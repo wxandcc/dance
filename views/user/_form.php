@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\User;
 
 if($model->config){
     $config = json_decode($model->config,true);
@@ -19,7 +20,8 @@ if($model->config){
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'superman')->textInput() ?>
+    <?= $form->field($model, 'superman')->dropDownList(User::supermanMap()) ?>
+    
     <div class="row">
         <div class="col-sm-12 text-left"><h3>用户拥有的角色</h3></div>
     </div>

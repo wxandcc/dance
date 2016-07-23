@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\UserQuery */
@@ -19,7 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'superman') ?>
+    <?= $form->field($model, 'superman')->dropDownList(User::supermanMap()) ?>
+
+    <?= $form->field($model, 'status')->dropDownList(User::statusMap()) ?>
 
     <div class="form-group">
         <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>

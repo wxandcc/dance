@@ -17,6 +17,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Role extends \yii\db\ActiveRecord
 {
+    const  ENABLE = 1;
+    const  DISABLE = 0;
     /**
      * @inheritdoc
      */
@@ -62,7 +64,7 @@ class Role extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => '角色名称',
-            'enable' => '1有效 0无效',
+            'enable' => '角色状态',
             'created_time' => '创建时间',
             'updated_time' => '修改时间',
             'config' => '角色配置',
@@ -75,5 +77,12 @@ class Role extends \yii\db\ActiveRecord
 
     public static function getEnableRoleById($id){
         return static::findOne(['id'=>$id,'enable'=>1]);
+    }
+
+    public static function enableMap(){
+        return [
+            self::ENABLE=>'有效角色',
+            self::DISABLE => '废弃角色'
+        ];
     }
 }

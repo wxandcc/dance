@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Role;
 if($model->config){
     $config = json_decode($model->config,true);
 }
@@ -17,7 +18,7 @@ if($model->config){
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'enable')->textInput() ?>
+    <?= $form->field($model, 'enable')->dropDownList(Role::enableMap()) ?>
 
     <? //= $form->field($model, 'config')->textarea(['rows' => 6]) ?>
 

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\User;
 
 if($model->config){
     $config = json_decode($model->config,true);
@@ -33,10 +34,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            'superman',
+            [                      // the owner name of the model
+                'label' => '管理员级别',
+                'value' => User::supermanMap()[$model->superman],
+            ],
             'created_time',
             'updated_time',
-            'status',
+            [                      // the owner name of the model
+                'label' => '当前状态',
+                'value' => User::statusMap()[$model->status]
+            ],
             'login_ip',
             'login_time:datetime',
             'login_count',

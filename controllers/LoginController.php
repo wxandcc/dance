@@ -49,6 +49,11 @@ class LoginController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $user = Yii::$app->user->getIdentity();
+            $user->login_ip = Yii::$app->request->userIP;
+            $user->login_count += 1;
+            $user->login_time = date('Y-m-d H:i:s');
+            $user->save();
             return $this->goHome();
         }
         
