@@ -37,5 +37,17 @@ return [
                 "delete"=>"删除角色"
             ]
         ],
+        "resource"=>[
+            "all"=>"全部授权",
+            "info"=>"资源管理",
+            'defaultUrl'=>'resource/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建资源",
+                "view"=>"查看详情",
+                "update"=>"修改资源",
+                "delete"=>"删除资源"
+            ]
+        ],
     ]
 ];

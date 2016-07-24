@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use app\assets\ChainAsset;
+use yii\widgets\Breadcrumbs;
 
 ChainAsset::register($this);
 ?>
@@ -31,9 +32,11 @@ ChainAsset::register($this);
 <section>
     <div class="mainwrapper">
         <?= $this->render('chain/left-panel')?>
-
         <div class="mainpanel">
             <div class="contentpanel">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
                 <?= $content ?>
             </div>
         </div>
