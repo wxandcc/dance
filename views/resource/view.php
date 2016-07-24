@@ -32,19 +32,36 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             [
-                'label'=>'状态',
-                'value'=>function($model){
-                    return Resource::enableMap()[$model->enable];
-                }
+                'label' => '状态',
+                'value' => Resource::enableMap()[$model->enable]
             ],
             [
-                'label'=>'类型',
-                'value'=>function($model){
-                    return Resource::ResourceTypeMap()[$model->type];
-                }
+                'label' => '类型',
+                'value' => Resource::ResourceTypeMap()[$model->type]
             ],
-            'created_time'
+            'created_time',
+            'location:ntext'
         ],
     ]) ?>
+
+    <?php if ($model->location) {
+        if ($model->type == Resource::TYPE_IMG) { ?>
+            <div class="row padding15"><h3>图片资源详情</h3></div>
+            <div class="panel panel-default padding15">
+                <div class="row">
+                    <a target="_blank" href="/<?= $model->location ?>"><img width="100%" src="/<?= $model->location ?>"></a>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="row padding15"><h3>视频资源详情</h3></div>
+            <div class="panel panel-default padding15">
+                <video width="100%" height="auto" controls="controls">
+                    <source src="/<?= $model->location ?>" type="video/ogg">
+                    <source src="/<?= $model->location ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        <?php } ?>
+    <?php } ?>
 
 </div>

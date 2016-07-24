@@ -8,6 +8,7 @@ use app\models\ResourceQuery;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ResourceController implements the CRUD actions for Resource model.
@@ -65,8 +66,28 @@ class ResourceController extends BaseController
     {
         $model = new Resource();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->validate()) {
+                $uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+                if($model->type == Resource::TYPE_VIDEO){
+                    $filename = 'upload/videos/' .md5_file($uploadFile->tempName).'.'.$uploadFile->extension;
+                    $uploadFile->saveAs($filename);
+                    $model->location = $filename;
+                }else{
+                    $filename = 'upload/images/' .md5_file($uploadFile->tempName).'.'.$uploadFile->extension;
+                    $uploadFile->saveAs($filename);
+                    $model->location = $filename;
+                }
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -84,8 +105,29 @@ class ResourceController extends BaseController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                $uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+                if($uploadFile){
+                    if($model->type == Resource::TYPE_VIDEO){
+                        $filename = 'upload/videos/' .md5_file($uploadFile->tempName).'.'.$uploadFile->extension;
+                        $uploadFile->saveAs($filename);
+                        $model->location = $filename;
+                    }else{
+                        $filename = 'upload/images/' .md5_file($uploadFile->tempName).'.'.$uploadFile->extension;
+                        $uploadFile->saveAs($filename);
+                        $model->location = $filename;
+                    }
+                }
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+
         } else {
             return $this->render('update', [
                 'model' => $model,

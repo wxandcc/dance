@@ -17,7 +17,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Resource extends \yii\db\ActiveRecord
 {
-
+    public $uploadFile;
     const  ENABLE = 1;
     const  DISABLE = 0;
 
@@ -38,12 +38,13 @@ class Resource extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'uid'], 'required'],
+            [['name'], 'required'],
             [['enable', 'type', 'uid'], 'integer'],
             [['created_time'], 'safe'],
-            [['location'], 'string'],
             [['name'], 'string', 'max' => 70],
             [['name'], 'unique'],
+            [['location'], 'string'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg,gif,mp4']
         ];
     }
 
