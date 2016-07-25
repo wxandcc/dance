@@ -24,4 +24,18 @@ CREATE TABLE `wz_user` (
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='登录管理表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='登录管理表';
+
+ CREATE TABLE `wz_feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stu_id` int(11) NOT NULL COMMENT '学生id',
+  `message` text NOT NULL COMMENT '留言内容',
+  `enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1有效 0已删除',
+  `reply_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '回复类型 1短信 2在线回复',
+  `reply` text null COMMENT '回复内容',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '最后修改时间',
+  `uid` int(11) NULL COMMENT '管理员id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言' ;
+

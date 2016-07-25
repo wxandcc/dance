@@ -49,6 +49,13 @@ $config = [
     ],
     'defaultRoute' => 'index',
     'params' => $params,
+    'modules'=>[
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@webroot/upload/images',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
+    ]
 ];
 
 if (YII_ENV_DEV) {

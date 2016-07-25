@@ -49,5 +49,16 @@ return [
                 "delete"=>"删除资源"
             ]
         ],
+        "feedback"=>[
+            "all"=>"全部授权",
+            "info"=>"留言管理",
+            'defaultUrl'=>'feedback/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "view"=>"查看详情",
+                "update"=>"回复留言",
+                "delete"=>"删除留言"
+            ]
+        ],
     ]
 ];
