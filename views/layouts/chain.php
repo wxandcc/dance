@@ -17,7 +17,11 @@ ChainAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <script src="/js/jquery-1.11.1.min.js"></script>
     <?php $this->head() ?>
+
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>
