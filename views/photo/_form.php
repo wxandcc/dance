@@ -14,18 +14,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cls')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cls')->dropDownList(\app\models\Classification::getPhotoClass())?>
 
     <?= $form->field($model, 'banner')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'des')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'created_time')->textInput() ?>
-
-    <?= $form->field($model, 'updated_time')->textInput() ?>
+    <?= $form->field($model, 'des')->widget('kucha\ueditor\UEditor',[])?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '新增' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

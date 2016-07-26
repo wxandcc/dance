@@ -18,6 +18,9 @@ use Yii;
  */
 class Teacher extends \yii\db\ActiveRecord
 {
+    const GENDER_ML = 1;
+    const GENDER_FM = 2;
+    const GENDER_UN = 0;
     /**
      * @inheritdoc
      */
@@ -69,6 +72,14 @@ class Teacher extends \yii\db\ActiveRecord
                 ],
                 'value' => function() { return date('Y-m-d H:i:s');}
             ],
+        ];
+    }
+
+    public static function getGenderMap(){
+        return [
+            self::GENDER_UN => '保密',
+            self::GENDER_ML=>'男',
+            self::GENDER_FM=>'女'
         ];
     }
 

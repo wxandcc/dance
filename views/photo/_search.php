@@ -17,9 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'url') ?>
-
-    <?= $form->field($model, 'cls') ?>
+    <?= $form->field($model, 'cls')->dropDownList(\app\models\Classification::getPhotoClass()) ?>
 
     <?= $form->field($model, 'banner') ?>
 
@@ -30,8 +28,7 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'updated_time') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

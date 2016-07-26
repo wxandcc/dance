@@ -19,21 +19,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'gender') ?>
+    <?= $form->field($model, 'gender')->dropDownList(\app\models\Teacher::getGenderMap()) ?>
+
+    <?= $form->field($model, 'cls')->dropDownList(\app\models\Classification::getTeacherClass()) ?>
 
     <?= $form->field($model, 'age') ?>
 
     <?= $form->field($model, 'des') ?>
 
-    <?php // echo $form->field($model, 'phone') ?>
+    <?php echo $form->field($model, 'phone') ?>
 
-    <?php // echo $form->field($model, 'created_time') ?>
-
-    <?php // echo $form->field($model, 'updated_time') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('查找', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

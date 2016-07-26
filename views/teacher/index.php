@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\TeacherQuery */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Teachers';
+$this->title = '教师管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="teacher-index">
@@ -16,22 +16,33 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Teacher', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增教师', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'name',
-            'gender',
+            [
+                'label'=>'性别',
+                'value'=>function($m){
+                    return \app\models\Teacher::getGenderMap()[$m->gender];
+                }
+            ],
+            [
+                'label'=>'分类',
+                'value'=>function($m){
+                    return \app\models\Classification::getTeacherClass()[$m->cls];
+                }
+            ],
             'age',
             'des:ntext',
-            // 'phone',
-            // 'created_time',
-            // 'updated_time',
+            'phone',
+            'created_time',
+            'updated_time',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
