@@ -72,5 +72,53 @@ return [
                 "delete"=>"删除课程"
             ]
         ],
+        "good-student"=>[
+            "all"=>"全部授权",
+            "info"=>"优秀学员管理",
+            'defaultUrl'=>'good-student/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建优秀学员信息",
+                "view"=>"查看详情",
+                "update"=>"更新优秀学员信息",
+                "delete"=>"删除优秀学员信息"
+            ]
+        ],
+        "info"=>[
+            "all"=>"全部授权",
+            "info"=>"资讯管理",
+            'defaultUrl'=>'info/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建资讯",
+                "view"=>"查看详情",
+                "update"=>"更新资讯",
+                "delete"=>"删除资讯"
+            ]
+        ],
+        "photo"=>[
+            "all"=>"全部授权",
+            "info"=>"剧照管理",
+            'defaultUrl'=>'photo/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建剧照",
+                "view"=>"查看详情",
+                "update"=>"更新剧照",
+                "delete"=>"删除剧照"
+            ]
+        ],
+        "teacher"=>[
+            "all"=>"全部授权",
+            "info"=>"教师管理",
+            'defaultUrl'=>'teacher/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建教师",
+                "view"=>"查看详情",
+                "update"=>"更新教师",
+                "delete"=>"删除教师"
+            ]
+        ],
     ]
 ];
