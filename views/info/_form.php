@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Classification;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Info */
@@ -14,20 +15,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cls')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cls')->dropDownList(Classification::getInfoClass())?>
 
     <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'banner')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'created_time')->textInput() ?>
-
-    <?= $form->field($model, 'updated_time')->textInput() ?>
+    <?= $form->field($model, 'content')->widget('kucha\ueditor\UEditor',[])?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '创建' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

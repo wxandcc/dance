@@ -7,26 +7,31 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\InfoQuery */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Infos';
+$this->title = '资讯管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('创建资讯', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
-            'cls',
+            [
+                'label'=>'分类',
+                'value'=>function($model){
+                    return \app\models\Classification::getInfoClass()[$model->cls];
+                }
+            ],
             'from',
             'banner',
             // 'content:ntext',
