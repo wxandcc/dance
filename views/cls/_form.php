@@ -25,7 +25,7 @@ use yii\redactor\RedactorModule;
 
     <?= $form->field($model, 'des')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'showCls')->widget(\yii\redactor\widgets\Redactor::className()) ?>
+    <?= $form->field($model, 'showCls')->widget('kucha\ueditor\UEditor',[])?>
 
     <?= $form->field($model, 'clsTime')->textInput() ?>
 

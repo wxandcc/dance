@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Classification;
+use app\models\Cls;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ClsQuery */
@@ -26,11 +28,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'hard',
-            'age',
+           // 'hard',
+            [
+                'label'=>'课程难易程度',
+                'value'=>function($model){
+                    return Cls::getHardMap()[$model->hard];
+                }
+            ],
+           // 'age',
+            [
+                'label'=>'适用年龄段',
+                'value'=>function($model){
+                    return Cls::getAgeMap()[$model->age];
+                }
+            ],
             'cls',
+            [
+                'label'=>'课程分类',
+                'value'=>function($model){
+                    return Classification::getTeacherClass()[$model->cls];
+                }
+            ],
             // 'des:ntext',
-            // 'showCls:ntext',
+            // 'showCls:html',
             // 'clsTime:datetime',
             // 'clsAim:ntext',
             // 'clsNotice:ntext',

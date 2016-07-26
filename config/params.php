@@ -60,5 +60,17 @@ return [
                 "delete"=>"删除留言"
             ]
         ],
+        "cls"=>[
+            "all"=>"全部授权",
+            "info"=>"课程管理",
+            'defaultUrl'=>'cls/index',
+            "action"=>[
+                "index"=>"查看列表",
+                "create"=>"创建课程",
+                "view"=>"查看详情",
+                "update"=>"更新课程",
+                "delete"=>"删除课程"
+            ]
+        ],
     ]
 ];

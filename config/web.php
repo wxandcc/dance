@@ -48,6 +48,7 @@ $config = [
         ],
     ],
     'defaultRoute' => 'index',
+    'language' => 'zh-CN',
     'params' => $params,
     'modules'=>[
         'redactor' => [

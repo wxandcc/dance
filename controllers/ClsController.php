@@ -14,6 +14,15 @@ use yii\filters\VerbFilter;
  */
 class ClsController extends BaseController
 {
+
+    public function actions()
+    {
+        return [
+            'upload' => [
+                'class' => 'kucha\ueditor\UEditorAction',
+            ]
+        ];
+    }
     /**
      * @inheritdoc
      */
