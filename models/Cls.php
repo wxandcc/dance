@@ -97,4 +97,13 @@ class Cls extends \yii\db\ActiveRecord
             ],
         ];
     }
+
+
+    public function getTeachers(){
+        return $this->hasMany(Teacher::className(),["id"=>"teacher_id"])->viaTable(Relationship::tableName(),["class_id"=>"id"],function ($query) {
+            /* @var $query \yii\db\ActiveQuery */
+            $query->andWhere(['enable' => Relationship::ENABLE]);
+        });
+    }
+
 }
