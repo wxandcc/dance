@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\GoodStudent */
 
-$this->title = 'Update Good Student: ' . $model->name;
+$this->title = '修改优秀学员信息: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Good Students', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="good-student-update">
 
