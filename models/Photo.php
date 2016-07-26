@@ -54,4 +54,18 @@ class Photo extends \yii\db\ActiveRecord
             'updated_time' => '最后修改时间',
         ];
     }
+
+    public function behaviors()
+    {
+        return [
+            "timestamp"=> [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'attributes' => [
+                    \yii\db\ActiveRecord::EVENT_BEFORE_INSERT => ['created_time','updated_time'],
+                    \yii\db\ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
+                ],
+                'value' => function() { return date('Y-m-d H:i:s');}
+            ],
+        ];
+    }
 }

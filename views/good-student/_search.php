@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\GoodStudent;
+use app\models\Classification;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\GoodStudentQuery */
@@ -19,21 +21,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'gender') ?>
+    <?= $form->field($model, 'gender')->dropDownList(GoodStudent::getGenderMap()) ?>
+    <?= $form->field($model, 'cls')->dropDownList(Classification::getStudentClass()) ?>
 
     <?= $form->field($model, 'age') ?>
 
-    <?= $form->field($model, 'banner') ?>
-
-    <?php // echo $form->field($model, 'des') ?>
-
-    <?php // echo $form->field($model, 'created_time') ?>
-
-    <?php // echo $form->field($model, 'updated_time') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

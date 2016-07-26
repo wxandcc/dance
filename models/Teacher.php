@@ -34,10 +34,10 @@ class Teacher extends \yii\db\ActiveRecord
         return [
             [['name', 'age', 'des', 'phone'], 'required'],
             [['gender', 'age'], 'integer'],
-            [['des'], 'string'],
+            [['des','cls'], 'string'],
             [['created_time', 'updated_time'], 'safe'],
             [['name'], 'string', 'max' => 100],
-            [['phone'], 'string', 'max' => 25],
+            [['phone','cls'], 'string', 'max' => 25],
         ];
     }
 
@@ -50,6 +50,7 @@ class Teacher extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => '教师名称',
             'gender' => '性别 1 男 2 女',
+            'cls'=>'分类',
             'age' => '年龄',
             'des' => '介绍',
             'phone' => '手机号码',
@@ -57,4 +58,18 @@ class Teacher extends \yii\db\ActiveRecord
             'updated_time' => '最后修改时间',
         ];
     }
+    public function behaviors()
+    {
+        return [
+            "timestamp"=> [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'attributes' => [
+                    \yii\db\ActiveRecord::EVENT_BEFORE_INSERT => ['created_time','updated_time'],
+                    \yii\db\ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
+                ],
+                'value' => function() { return date('Y-m-d H:i:s');}
+            ],
+        ];
+    }
+
 }
