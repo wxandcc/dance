@@ -34,18 +34,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             //'hard',
             [
-                'label'=>'课程难易程度',
-                'value'=>Cls::getHardMap()[$model->hard]
+                'label' => '课程难易程度',
+                'value' => Cls::getHardMap()[$model->hard]
             ],
-           // 'age',
+            // 'age',
             [
-                'label'=>'适用年龄段',
-                'value'=>Cls::getAgeMap()[$model->age]
+                'label' => '适用年龄段',
+                'value' => Cls::getAgeMap()[$model->age]
             ],
-           // 'cls',
+            // 'cls',
             [
-                'label'=>'分类',
-                'value'=>Classification::getTeacherClass()[$model->cls]
+                'label' => '分类',
+                'value' => Classification::getTeacherClass()[$model->cls]
             ],
             'des:ntext',
             'showCls:ntext',
@@ -57,4 +57,33 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <div class="row">
+        <div class="col-sm-12 text-center"><h1>教师信息</h1></div>
+    </div>
+    <?php if ($model->getAllTeachers()) { ?>
+        <?php foreach ($model->getAllTeachers() as $cls => $teachers) { ?>
+            <div class="panel panel-default padding15">
+                <div>
+                    <span class="col-sm-12 text-left border_style1"><?= Classification::getTeacherClass()[$cls] ?></span>
+                </div>
+                <?php if ($teachers) { ?>
+                    <div class="form-group padding10">
+                        <label class="col-sm-4 control-label">教师信息</label>
+                        <div class="col-sm-8">
+                            <?php
+                            foreach ($teachers as $teacher) {
+                                ?>
+                                <div class="ckbox ckbox-success">
+                                    <input name="Teacher[]" type="checkbox"
+                                           id="<?= $cls . "-action-" . $teacher->id ?>"
+                                           value="1" <?= in_array($teacher->id,$model->getTeachersIds()) ? 'checked="checked"' : "" ?>>
+                                    <label for="<?= $cls . "-action-" . $teacher->id ?>"><?= $teacher->name ?></label>
+                                </div>
+                            <?php } ?>
+                        </div><!-- col-sm-8 -->
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    <?php } ?>
 </div>

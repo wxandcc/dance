@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Relationship;
 use Yii;
 use app\models\Cls;
 use app\models\ClsQuery;
@@ -94,6 +95,8 @@ class ClsController extends BaseController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $teachers = Yii::$app->request->post('Teacher');
+            Relationship::updateTeachers($model->id,$teachers);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -130,4 +133,5 @@ class ClsController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

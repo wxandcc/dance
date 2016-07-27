@@ -23,6 +23,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class Cls extends \yii\db\ActiveRecord
 {
+    private $all_teachers = [];
+    private $teachers_ids = [];
+
     /**
      * @inheritdoc
      */
@@ -104,6 +107,30 @@ class Cls extends \yii\db\ActiveRecord
             /* @var $query \yii\db\ActiveQuery */
             $query->andWhere(['enable' => Relationship::ENABLE]);
         });
+    }
+
+
+    public function getTeachersIds(){
+        if(empty($this->teachers_ids)){
+            if($this->teachers){
+                foreach ($this->teachers as $teacher){
+                    $this->teachers_ids[] = $teacher->id;
+                }
+            }
+        }
+        return $this->teachers_ids;
+    }
+
+    public function getAllTeachers(){
+        if(empty($this->all_teachers)){
+            $t = Teacher::find()->all();
+            if($t){
+                foreach ($t as $v){
+                    $this->all_teachers[$v->cls][] = $v;
+                }
+            }
+        }
+        return $this->all_teachers;
     }
 
 }
