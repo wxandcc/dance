@@ -16,22 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'age')->textInput() ?>
-
-    <?= $form->field($model, 'wx_open_id')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created_time')->textInput() ?>
-
-    <?= $form->field($model, 'updated_time')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '创建' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
