@@ -90,10 +90,25 @@ class BaseController extends Controller
             if($this->auth[Yii::$app->controller->id]['action'][Yii::$app->controller->action->id]){
                 return true;
             }
+
+            if(Yii::$app->controller->action->id == "upload"){
+                return true;
+            }
+
             if(Yii::$app->controller->id=="index" && Yii::$app->controller->action->id=="index"){
                 return true;//修复循环重定向bug
             }
             return false;
         }
     }
+
+    public function actions()
+    {
+        return [
+            'upload' => [
+                'class' => 'kucha\ueditor\UEditorAction',
+            ]
+        ];
+    }
+
 }

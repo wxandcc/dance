@@ -233,3 +233,17 @@ CREATE TABLE `wz_user` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-07-26 23:59:36
+
+CREATE TABLE `wz_student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nickname` char(70) NOT NULL COMMENT '用户名',
+  `email` char(70) NOT NULL COMMENT '邮箱',
+  `password` char(70) NOT NULL COMMENT '密码',
+  `phone` varchar(20) NULL  COMMENT '手机号',
+  `avatar` varchar(255) NULL  COMMENT '头像',
+  `wx_open_id` varchar(255) NULL  COMMENT '微信id',
+  `created_time` datetime DEFAULT NULL COMMENT '注册时间',
+  `updated_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_username` (`nickname`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='学员信息表'   ;

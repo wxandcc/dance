@@ -15,14 +15,14 @@ return [
         */
         "user"=>[
             "all"=>"全部授权",
-            "info"=>"用户管理",
+            "info"=>"管理员管理",
             'defaultUrl'=>'user/index',
             "action"=>[
                 "index"=>"查看列表",
-                "create"=>"创建用户",
+                "create"=>"创建管理员",
                 "view"=>"查看详情",
-                "update"=>"修改用户",
-                "delete"=>"删除用户"
+                "update"=>"修改管理员",
+                "delete"=>"删除管理员"
             ]
         ],
         "role"=>[
@@ -118,6 +118,17 @@ return [
                 "view"=>"查看详情",
                 "update"=>"更新教师",
                 "delete"=>"删除教师"
+            ]
+        ],
+        "student"=>[
+            "all"=>"全部授权",
+            "info"=>"学员管理",
+            'defaultUrl'=>'student/index',
+            "action"=>[
+                "index"=>"查看列表",
+               // "create"=>"创建学员",
+                "view"=>"查看详情",
+                "update"=>"审核信息",
             ]
         ],
     ]
