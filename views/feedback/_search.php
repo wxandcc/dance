@@ -26,7 +26,16 @@ use app\models\Feedback;
 
     <?= $form->field($model, 'reply_type')->dropDownList(Feedback::getReplyTypeMap()) ?>
 
-    <?php  echo $form->field($model, 'created_time') ?>
+    
+    <?=$form->field($model,'_search_date_from')->widget(\yii\jui\DatePicker::classname(), [
+        'options' => ['class' => 'form-control'],
+        'dateFormat' => 'yyyy-MM-dd',
+    ])->label("创建时间开始") ?>
+
+    <?=$form->field($model,'_search_date_end')->widget(\yii\jui\DatePicker::classname(), [
+        'options' => ['class' => 'form-control'],
+        'dateFormat' => 'yyyy-MM-dd',
+    ])->label("创建时间结束") ?>
 
     <div class="form-group">
         <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>

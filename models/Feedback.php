@@ -27,6 +27,11 @@ class Feedback extends \yii\db\ActiveRecord
     const REPLY_MSG = 2;
     const REPLY_NO = 0;//未回复
 
+    
+    public $_search_date_from;
+    public $_search_date_end;
+
+
     /**
      * @inheritdoc
      */

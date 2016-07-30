@@ -12,6 +12,9 @@ use app\models\Feedback;
  */
 class FeedbackQuery extends Feedback
 {
+    public $_search_date_from;
+    public $_search_date_end;
+
     /**
      * @inheritdoc
      */
@@ -70,6 +73,15 @@ class FeedbackQuery extends Feedback
 
         $query->andFilterWhere(['like', 'message', $this->message])
             ->andFilterWhere(['like', 'reply', $this->reply]);
+
+
+        if($this->_search_date_end){
+            $query->andFilterWhere(['<', 'created_time', date('Y-m-d H:i:s',strtotime($this->_search_date_end))]);
+        }
+        if($this->_search_date_from){
+            $query->andFilterWhere(['>', 'created_time', date('Y-m-d H:i:s',strtotime($this->_search_date_from))]);
+        }
+
 
         return $dataProvider;
     }
