@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'created_time',
             // 'uid',
-            // 'location:ntext',
+            'location:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

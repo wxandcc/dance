@@ -18,6 +18,10 @@ use Yii;
  */
 class Info extends \yii\db\ActiveRecord
 {
+
+    public $_search_date_from;
+
+    public $_search_date_end;
     /**
      * @inheritdoc
      */

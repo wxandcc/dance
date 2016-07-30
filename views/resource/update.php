@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Resource */
 
 $this->title = '修改资源信息: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '资源管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = '更新';
 ?>

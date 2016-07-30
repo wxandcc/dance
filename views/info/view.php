@@ -8,7 +8,7 @@ use app\models\Classification;
 /* @var $model app\models\Info */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Infos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '资讯管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info-view">

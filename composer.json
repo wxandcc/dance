@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "yiidoc/yii2-redactor": "*",
-        "kucha/ueditor": "*"
+        "kucha/ueditor": "*",
+        "2amigos/yii2-date-picker-widget": "~1.0",
+        "yiisoft/yii2-jui": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

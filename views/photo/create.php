@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Photo */
 
 $this->title = '新增剧照';
-$this->params['breadcrumbs'][] = ['label' => 'Photos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '剧照管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="photo-create">

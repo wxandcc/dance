@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Resource */
 
 $this->title = '创建资源';
-$this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '资源管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="resource-create">

@@ -8,7 +8,7 @@ use app\models\Resource;
 /* @var $model app\models\Resource */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '资源管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="resource-view">
@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => Resource::ResourceTypeMap()[$model->type]
             ],
             'created_time',
-            'location:ntext'
+            'location:ntext',
         ],
     ]) ?>
 

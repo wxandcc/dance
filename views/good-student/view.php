@@ -9,7 +9,7 @@ use app\models\Classification;
 /* @var $model app\models\GoodStudent */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Good Students', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '优秀学生管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="good-student-view">

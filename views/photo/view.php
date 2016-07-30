@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Photo */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Photos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '剧照管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="photo-view">

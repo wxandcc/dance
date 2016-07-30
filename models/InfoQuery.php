@@ -12,6 +12,8 @@ use app\models\Info;
  */
 class InfoQuery extends Info
 {
+    public $_search_date_from;
+    public $_search_date_end;
     /**
      * @inheritdoc
      */
@@ -20,6 +22,7 @@ class InfoQuery extends Info
         return [
             [['id'], 'integer'],
             [['title', 'cls', 'from', 'banner', 'content', 'created_time', 'updated_time'], 'safe'],
+            [['_search_date_from', '_search_date_end', ], 'safe'],
         ];
     }
 
@@ -51,6 +54,7 @@ class InfoQuery extends Info
 
         $this->load($params);
 
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -59,9 +63,7 @@ class InfoQuery extends Info
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'created_time' => $this->created_time,
-            'updated_time' => $this->updated_time,
+            'id' => $this->id
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
@@ -69,6 +71,13 @@ class InfoQuery extends Info
             ->andFilterWhere(['like', 'from', $this->from])
             ->andFilterWhere(['like', 'banner', $this->banner])
             ->andFilterWhere(['like', 'content', $this->content]);
+
+        if($this->_search_date_end){
+            $query->andFilterWhere(['<', 'created_time', date('Y-m-d H:i:s',strtotime($this->_search_date_end))]);
+        }
+        if($this->_search_date_from){
+            $query->andFilterWhere(['>', 'created_time', date('Y-m-d H:i:s',strtotime($this->_search_date_from))]);
+        }
 
         return $dataProvider;
     }

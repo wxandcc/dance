@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Feedback */
 
 $this->title = '回复留言: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Feedbacks', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '留言管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = '回复或修改';
 ?>
