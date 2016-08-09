@@ -1,4 +1,5 @@
 <div class="leftpanel">
+    <!--
     <div class="media profile-left">
         <a class="pull-left profile-thumb"
            href="<?= Yii::$app->urlManager->createUrl(["user/view", 'id' => $this->params['user']->id]) ?>">
@@ -6,9 +7,9 @@
         </a>
         <div class="media-body">
             <h4 class="media-heading"><?= $this->params['user']->username; ?></h4>
-            <!--            <small class="text-muted">Beach Lover</small> -->
         </div>
-    </div><!-- media -->
+    </div>
+    -->
 
     <h5 class="leftpanel-title">导航栏</h5>
     <ul class="nav nav-pills nav-stacked">
